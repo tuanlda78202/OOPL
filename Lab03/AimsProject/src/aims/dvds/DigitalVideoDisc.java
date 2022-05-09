@@ -60,9 +60,4 @@ public class DigitalVideoDisc {
     public boolean equalTitle(DigitalVideoDisc disc) {
 		return (this.title == disc.getTitle());
 	}
-	
-    // Search title 
-	public boolean search(String title) {
-		return this.title == title;
-	}
 }

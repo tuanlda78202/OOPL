@@ -19,7 +19,8 @@ public class Cart {
 			System.out.println("The cart is full");
 		}
 	}
-/*
+
+	/*
 	// Add a list of DVDs to the current cart
 	public void addDigitalVideoDisc(DigitalVideoDisc[] dvdList) {
 		if (qtyOrdered + dvdList.length <= MAX_NUMBERS_ORDERED) {
@@ -34,6 +35,7 @@ public class Cart {
 		}
 	}
 */
+
 	// Pass an arbitrary number of arguments for dvd
 	public void addDigitalVideoDisc(DigitalVideoDisc... dvdList) {
 		if (qtyOrdered + dvdList.length <= MAX_NUMBERS_ORDERED) {

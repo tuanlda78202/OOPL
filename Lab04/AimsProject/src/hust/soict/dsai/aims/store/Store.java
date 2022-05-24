@@ -1,9 +1,12 @@
 package hust.soict.dsai.aims.store;
 import hust.soict.dsai.aims.disc.DigitalVideoDisc;
 import java.util.Arrays;
-
+import java.util.List;
+import java.util.ArrayList;
+import hust.soict.dsai.aims.media.*;
 public class Store {
 	private Object[][] itemsInStore = {null};
+	private List<Media> itemsInStoreM = new ArrayList<Media>();
 
 	public void addDVD(DigitalVideoDisc disc, int quantity) {
 		if (disc.getID()+1 > itemsInStore.length) {
@@ -61,6 +64,35 @@ public class Store {
 		}
 	}
 
+	public boolean addMedia(Media medium) {
+		if (this.itemsInStoreM.contains(medium)) {
+			System.out.println(medium.getTitle() + " is already available at the store.");
+			return false;
+		} else {
+			this.itemsInStoreM.add(medium);
+			System.out.println(medium.getTitle() + " has been added to the store.");
+		}
+		return true;
+	}
+	
+	public boolean removeMedia(Media medium) {
+		if (this.itemsInStoreM.remove(medium)) {
+			System.out.println(medium.getTitle() + " has been removed from the store.");
+			return true;
+		} else {
+			System.out.println(medium.getTitle() + " is not available at the store.");
+			return false;
+		}
+	}
+	
+	public Media searchMedia(String title) {
+		for (Media medium: this.itemsInStoreM) {
+			if (medium.getTitle().toLowerCase().equals(title.toLowerCase())) {
+				return medium;
+			}
+		}
+		return null;
+	}
 	public void print() {
 		System.out.println("\n");
 		System.out.println("*************AVAILABLE DVDs IN STORE***************");

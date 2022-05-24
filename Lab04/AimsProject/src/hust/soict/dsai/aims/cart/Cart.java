@@ -1,6 +1,7 @@
 package hust.soict.dsai.aims.cart;
 import hust.soict.dsai.aims.disc.DigitalVideoDisc;
-
+import java.util.Collections;
+import hust.soict.dsai.aims.media.*;
 public class Cart {
 	public static final int MAX_NUMBERS_ORDERED = 20;
 	private DigitalVideoDisc itemsOrdered[] = new DigitalVideoDisc[MAX_NUMBERS_ORDERED];
@@ -76,12 +77,12 @@ public class Cart {
 		System.out.println("Ordered Items:");
 		for (int i = 0; i < qtyOrdered; i++) {
 			Object[] detail = itemsOrdered[i].getDetail();
-			System.out.println(Integer.toString(i+1) + "." + "\t" + detail[0]
-					+ "\t" + "-" + "\t" + detail[1]
-					+ "\t" + "-" + "\t" + detail[2]
-					+ "\t" + "-" + "\t" + detail[3]
-					+ "\t" + "-" + "\t" + detail[4] + " minutes"
-					+ ":" + "\t" + "$" + detail[5]);
+			System.out.println(Integer.toString(i+1) + "." + " DVD"
+					+ " - " + detail[1]
+					+ " - " + detail[2]
+					+ " - " + detail[3]
+					+ " - "+ detail[4] + " minutes"
+					+ ": " + "$" + detail[5]);
 		}
 		System.out.println("Total cost: " + "$" + this.totalCost());
 		System.out.println("***************************************************");
@@ -97,12 +98,12 @@ public class Cart {
 		for (int i = 0; i < qtyOrdered; i++) {
 			if (itemsOrdered[i].getID() == id) {
 				Object[] detail = itemsOrdered[i].getDetail();
-				System.out.println(Integer.toString(i+1) + "." + "\t" + detail[0]
-						+ "\t" + "-" + "\t" + detail[1]
-						+ "\t" + "-" + "\t" + detail[2]
-						+ "\t" + "-" + "\t" + detail[3]
-						+ "\t" + "-" + "\t" + detail[4] + " minutes"
-						+ ":" + "\t" + "$" + detail[5]);
+				System.out.println(Integer.toString(i+1) + "." + " DVD"
+				+ " - " + detail[1]
+				+ " - " + detail[2]
+				+ " - " + detail[3]
+				+ " - "+ detail[4] + " minutes"
+				+ ": " + "$" + detail[5]);
 				qty += 1;
 				cost = itemsOrdered[i].getCost();
 				found = true;
@@ -131,12 +132,12 @@ public class Cart {
 		for (int i = 0; i < qtyOrdered; i++) {
 			if (itemsOrdered[i].search(title)) {
 				Object[] detail = itemsOrdered[i].getDetail();
-				System.out.println(Integer.toString(i+1) + "." + "\t" + detail[0]
-						+ "\t" + "-" + "\t" + detail[1]
-						+ "\t" + "-" + "\t" + detail[2]
-						+ "\t" + "-" + "\t" + detail[3]
-						+ "\t" + "-" + "\t" + detail[4] + " minutes"
-						+ ":" + "\t" + "$" + detail[5]);
+				System.out.println(Integer.toString(i+1) + "." + " DVD"
+				+ " - " + detail[1]
+				+ " - " + detail[2]
+				+ " - " + detail[3]
+				+ " - "+ detail[4] + " minutes"
+				+ ": " + "$" + detail[5]);
 				qty += 1;
 				cost = itemsOrdered[i].getCost();
 				found = true;

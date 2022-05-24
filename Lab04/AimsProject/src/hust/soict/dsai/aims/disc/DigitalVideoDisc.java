@@ -1,11 +1,14 @@
 package hust.soict.dsai.aims.disc;
 
+import java.time.LocalDate;
+
 public class DigitalVideoDisc {
 	private String title;
 	private String category;
 	private String director;
 	private int length;
 	private float cost;
+	private LocalDate dateAdded;
 	private static int nbDigitalVideoDiscs = 0;
 	private int id;
 	
@@ -51,6 +54,7 @@ public class DigitalVideoDisc {
 		Object[] detail = {this.getID(), this.getTitle(), this.getCategory(), this.getDirector(), this.getLength(), this.getCost()};
 		return detail;
 	}
+
 	public DigitalVideoDisc(String title) {
 		this.title = title;
 		this.id = nbDigitalVideoDiscs;
@@ -114,4 +118,14 @@ public class DigitalVideoDisc {
 	public boolean search(String title) {
 		return this.title == title;
 	}
+
+	public String getDetails() {
+		return ("Product ID: " + String.valueOf(this.getID())
+				+ "\n" + "\t" + "Title: " + this.getTitle()
+				+ "\n" + "\t" + "Category: " + this.getCategory()
+				+ "\n" + "\t" + "Director: " + this.getDirector()
+				+ "\n" + "\t" + "Length: " + String.valueOf(this.getLength()) + " minutes"
+				+ "\n" + "\t" + "Price: $" + String.valueOf(this.getCost()));
+	}
+
 }

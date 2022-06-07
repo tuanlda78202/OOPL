@@ -36,6 +36,10 @@ public class Aims {
 		store.addMedia(cd1);
 		store.addMedia(book1);
 		
+		Thread daemon = new Thread();
+		daemon.setDaemon(true);
+		daemon.start();
+		showMenu();
 		//The program starts here
 		fakeClearScreen();
 		showMenu();

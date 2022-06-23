@@ -18,4 +18,3 @@ public class MediaComparatorByTitleCost implements Comparator<Media> {
 		}
 	}
 }
-   

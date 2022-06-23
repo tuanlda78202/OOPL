@@ -15,8 +15,14 @@ public abstract class Media {
 	
 	public boolean equals(Object medium) {
 		if (medium instanceof Media) {
-			Media that = (Media) medium;
-			return this.title.toLowerCase().equals(that.getTitle().toLowerCase());
+			try {
+				Media that = (Media) medium;
+				return this.title.toLowerCase().equals(that.getTitle().toLowerCase());
+			} catch (NullPointerException e1) {
+				return false;
+			} catch (ClassCastException e2) {
+				return false;
+			}
 		} else {
 			return false;
 		}
@@ -43,7 +49,7 @@ public abstract class Media {
 		this.category = category;
 		this.id = nbMedia;
 		nbMedia += 1;
-	}    
+	}
 
 
 	public Media(String title) {

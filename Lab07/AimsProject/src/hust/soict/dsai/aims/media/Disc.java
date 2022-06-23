@@ -38,4 +38,3 @@ public abstract class Disc extends Media implements Playable {
 	}
 
 }
-   

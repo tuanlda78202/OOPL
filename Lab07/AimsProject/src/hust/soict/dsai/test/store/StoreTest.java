@@ -4,7 +4,7 @@ import hust.soict.dsai.aims.store.Store;
 
 public class StoreTest {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		//Create the store
 		Store myStore = new Store();
 
@@ -28,4 +28,4 @@ public class StoreTest {
 		myStore.removeMedia(dvd1);
 		myStore.print();
 	}
-}   
+}

@@ -1,18 +1,17 @@
 package hust.soict.dsai.aims.cart;
+import hust.soict.dsai.aims.exception.*;
 import hust.soict.dsai.aims.media.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Collections;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 
 public class Cart {
 	private static final int MAX_NUMBERS_ORDERED = 20;
-	private List<Media> itemsOrdered = new ArrayList<Media>();
+	private ObservableList<Media> itemsOrdered = FXCollections.observableArrayList();
 	
-	public boolean addMedia(Media medium) {
+	public void addMedia(Media medium) throws CartFullException {
 		if (this.itemsOrdered.size() == MAX_NUMBERS_ORDERED) {
-			System.out.println("The cart is full.");
-			return false;
+			throw new CartFullException("The cart is full.");
 		//In case the cart cannot carry dupplicate items
 //		} else if (this.itemsOrdered.contains(medium)) {
 //			System.out.println(medium.getTitle() + " is already in the cart.");
@@ -20,17 +19,14 @@ public class Cart {
 		} else {
 			this.itemsOrdered.add(medium);
 			System.out.println(medium.getTitle() + " has beed added to the cart.");
-			return true;
 		}
 	}
 	
-	public boolean removeMedia(Media medium) {
+	public void removeMedia(Media medium) throws NonExistingItemException {
 		if (this.itemsOrdered.remove(medium)) {
 			System.out.println(medium.getTitle() + " has been removed from the cart.");
-			return true;
 		} else {
-			System.out.println(medium.getTitle() + " is not in the cart.");
-			return false;
+			throw new NonExistingItemException(medium.getTitle() + " is not in the cart.");
 		}
 	}
 	
@@ -119,14 +115,22 @@ public class Cart {
 	}
 	
 	public void sortByTitle() {
-		Collections.sort(this.itemsOrdered, Media.COMPARE_BY_TITLE_COST);
+		FXCollections.sort(this.itemsOrdered, Media.COMPARE_BY_TITLE_COST);
 	}
 	
 	public void sortByCost() {
-		Collections.sort(this.itemsOrdered, Media.COMPARE_BY_COST_TITLE);
+		FXCollections.sort(this.itemsOrdered, Media.COMPARE_BY_COST_TITLE);
 	}
 	
 	public int getSize() {
 		return this.itemsOrdered.size();
 	}
-}    
+	
+	public ObservableList<Media> getItemsOrdered() {
+		return this.itemsOrdered;
+	}
+	
+	public void empty() {
+		this.itemsOrdered.clear();
+	}
+}

@@ -47,4 +47,4 @@ class DVDWrapper {
 	DVDWrapper(DigitalVideoDisc disc) {
 		this.disc = disc;
 	}
-}   
+}

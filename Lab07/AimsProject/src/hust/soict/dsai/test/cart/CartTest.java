@@ -4,7 +4,7 @@ import hust.soict.dsai.aims.media.*;
 
 public class CartTest {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
 		//Create a new cart
 		Cart cart = new Cart();
@@ -60,4 +60,3 @@ public class CartTest {
 	}
 
 }
-      

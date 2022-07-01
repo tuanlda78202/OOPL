@@ -12,10 +12,12 @@ public class Cart {
 	public void addMedia(Media medium) throws CartFullException {
 		if (this.itemsOrdered.size() == MAX_NUMBERS_ORDERED) {
 			throw new CartFullException("The cart is full.");
+
 		//In case the cart cannot carry dupplicate items
 //		} else if (this.itemsOrdered.contains(medium)) {
 //			System.out.println(medium.getTitle() + " is already in the cart.");
 //			return false;
+
 		} else {
 			this.itemsOrdered.add(medium);
 			System.out.println(medium.getTitle() + " has beed added to the cart.");

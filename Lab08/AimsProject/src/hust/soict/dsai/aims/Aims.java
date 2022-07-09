@@ -6,6 +6,11 @@ import hust.soict.dsai.aims.store.Store;
 import hust.soict.dsai.aims.media.*;
 import java.util.Scanner;
 
+/*Note: You will notice that I put a scan.nextLine() after every scan.nextInt()
+ * 		that is because scan.nextInt() doesn't read the newline in your input by
+ * 		hitting "Enter". So the next scan.nextLine() will read that newline imediately
+ * 		without you inputing anything, which is unfortunenate.
+ */
 
 public class Aims {
 	private static Store store = new Store();
@@ -91,7 +96,7 @@ public class Aims {
 		
 		System.out.println("Options: ");
 		System.out.println("--------------------------------");
-		System.out.println("1. See a mediaï¿½s details");
+		System.out.println("1. See a media’s details");
 		System.out.println("2. Add a media to cart");
 		System.out.println("3. Play a media");
 		System.out.println("4. See current cart");
@@ -115,7 +120,7 @@ public class Aims {
 			showMenu();
 		} 
 		
-		//See a mediaï¿½s details
+		//See a media’s details
 		else if (choice == 1) {
 			System.out.println("Please enter the title of the media you want to see details of: ");
 			String title = scan.nextLine();
